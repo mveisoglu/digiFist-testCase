@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Web Site</title>
+</head>
+<body>
+    <div id="content">
+        <div id="left-section">
+            <img src="bg.png" alt="Background image" width="730" height="864" />
+        </div>
+        <div id="right-section">
+            <h1>Find everyday items for every occasion</h1>
+            <p>Discover a wide range of products that suit your everyday needs, from clothing to accessories, and much more. </p>
+            <button id="shop-btn">Shop all everyday items</button>
+            <div id="slider">
+                <div class="card">
+                    <img src="card-1.png" alt="slide1" >
+                    <p class="product-name">365 Signature Hoodie</p>
+                    <p class="price">€33.95</p>
+                    <div class="color-filter">
+                        <button class="color red"></button>
+                        <button class="color blue"></button>
+                        <button class="color green"></button>
+                        <button class="color yellow"></button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="card-2.png" alt="slide2" >
+                    <p class="product-name">Organic Skinny High Waist Jeans</p>
+                    <p class="price">€33.95</p>
+                    <div class="color-filter">
+                        <button class="color red"></button>
+                        <button class="color blue"></button>
+                        <button class="color green"></button>
+                        <button class="color yellow"></button>
+                    </div>
+                </div>
+                <div class="card">
+                  <img src="card-3.png" alt="slide3">
+                  <p class="product-name">Organic Skinny High Waist Jeans</p>
+                  <p class="price">€33.95</p>
+                  <div class="color-filter">
+                    <button class="color red"></button>
+                    <button class="color blue"></button>
+                    <button class="color green"></button>
+                    <button class="color yellow"></button>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        // JavaScript code to handle user interactions, filter the products, etc.
+        var shopBtn = document.getElementById("shop-btn");
+        var colorFilter = document.querySelectorAll(".color-filter button");
+        var activeBtn;
+        shopBtn.addEventListener("click", function(){
+            // handle click event on shop button here
+        });
+        colorFilter.forEach(function(btn){
+            btn.addEventListener("click", function(event){
+                if(activeBtn){
+                    activeBtn.classList.remove("active");
+                }
+                activeBtn = event.target;
+                activeBtn.classList.add("active");
+                // handle click event on color filter buttons here
+            });
+        });
+    </script>
+</body>
+</html>
+
