@@ -1,31 +1,24 @@
-// DOM nesnelerini seçin
-const slider = document.getElementById("slider");
-const prevBtn = document.getElementById("prev");
-const nextBtn = document.getElementById("next");
+const currentSlide = 0;
+const cards = document.querySelectorAll(".card");
+const prevBtn = document.getElementById("prev-btn");
+const nextBtn = document.getElementById("next-btn");
 
-// Önceki slide'ı göster
-prevBtn.addEventListener("click", () => {
-  slider.scrollLeft -= slider.offsetWidth;
+prevBtn.addEventListener("click", function () {
+  goToPrevSlide();
 });
 
-// Sonraki slide'ı göster
-nextBtn.addEventListener("click", () => {
-  slider.scrollLeft += slider.offsetWidth;
+nextBtn.addEventListener("click", function () {
+  goToNextSlide();
 });
 
-// Slider'ı otomatik olarak hareket ettirin (isteğe bağlı)
-const autoSlide = setInterval(() => {
-  slider.scrollLeft += slider.offsetWidth;
-}, 3000);
+function goToPrevSlide() {
+  cards[currentSlide].style.display = "none";
+  currentSlide = currentSlide > 0 ? currentSlide - 1 : cards.length - 1;
+  cards[currentSlide].style.display = "block";
+}
 
-// Otomatik hareketi durdurun (isteğe bağlı)
-slider.addEventListener("mouseenter", () => {
-  clearInterval(autoSlide);
-});
-
-// Otomatik hareketi tekrar başlatın (isteğe bağlı)
-slider.addEventListener("mouseleave", () => {
-  autoSlide = setInterval(() => {
-    slider.scrollLeft += slider.offsetWidth;
-  }, 3000);
-});
+function goToNextSlide() {
+  cards[currentSlide].style.display = "none";
+  currentSlide = currentSlide < cards.length - 1 ? currentSlide + 1 : 0;
+  cards[currentSlide].style.display = "block";
+}
